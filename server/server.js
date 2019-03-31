@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const Data = require("./data");
-const { serverPort, dataBase } = require("../config");
+const { serverPort, dataBase } = require("./config");
 const app = express();
 
 const log = require("morgan");

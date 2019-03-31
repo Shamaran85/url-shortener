@@ -4,7 +4,10 @@
   "description": "Just another url shortener.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "setup": "npm install && npm run install-server && npm run install-client",
+    "start": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\""
   },
   "author": "Daniel",
   "license": "ISC",

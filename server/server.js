@@ -38,7 +38,7 @@ app.post("/create", (req, res) => {
     .catch(err => console.log(err));
 
   res.status(201).json({
-    data: data
+    body: data
   });
 });
 

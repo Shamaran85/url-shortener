@@ -84,12 +84,13 @@ form input[type="submit"] {
 }
 
 .result li:first-child {
-  margin: 15px;
+  margin: 15px 0;
 }
 
 .result li:first-child a {
   font-size: 1em;
   font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .result li a {
@@ -101,5 +102,20 @@ form input[type="submit"] {
 }
 
 .result a:hover {
-  background-color: #555;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+
+  form input[type="text"] {
+    max-height: 40px;
+    font-size: 0.65em;
+    padding: 10px;
+  }
 }

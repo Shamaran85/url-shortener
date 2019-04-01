@@ -43,7 +43,7 @@ class App extends Component {
 
   saveUrl = () => {
     axios
-      .post("http://localhost:3001/create", {
+      .post(`${serverUrl}/create`, {
         url: this.state.url
       })
       .then(res => {

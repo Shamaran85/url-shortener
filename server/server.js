@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const Data = require("./data");
+const Data = require("./models/data");
 const { serverPort, dataBase } = require("./config");
 const app = express();
 
@@ -24,6 +24,7 @@ app.post("/create", (req, res) => {
   const shortId = Math.random().toString(36).substring(2, 8);
 
   const data = new Data({
+    _id: new mongoose.Types.ObjectId(),
     shortId: shortId,
     url: req.body.url
   });

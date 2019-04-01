@@ -1,8 +1,0 @@
-const serverPort = 3001;
-
-const dataBase = "mongodb://host:port/db";
-
-module.exports = {
-  serverPort,
-  dataBase
-};

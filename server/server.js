@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const Data = require("./models/data");
-const { serverPort, dataBase } = require("./config");
+const port = process.env.PORT || 3001;
 const app = express();
 
 const log = require("morgan");
+
+const dataBase = "mongodb://mongodb:27017/urlShortener"
 
 mongoose.connect(dataBase, { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -55,6 +57,6 @@ app.get("/:shortId", (req, res) => {
     });
 });
 
-app.listen(serverPort, () =>
-  console.log(`Server listening on port: ${serverPort}`)
+app.listen(port, () =>
+  console.log(`Server listening on port: ${port}`)
 );

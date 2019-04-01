@@ -21,9 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post("/create", (req, res) => {
-  const shortId = Math.random()
-    .toString(36)
-    .substring(2, 8);
+  const shortId = Math.random().toString(36).substring(2, 8);
 
   const data = new Data({
     shortId: shortId,
@@ -32,21 +30,23 @@ app.post("/create", (req, res) => {
 
   data
     .save()
-    .then(res => {
-      console.log(res);
+    .then(result => {
+      console.log(result);
+      res.status(201).json({ body: data });
     })
-    .catch(err => console.log(err));
-
-  res.status(201).json({
-    body: data
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
 });
 
 app.get("/:shortId", (req, res) => {
   Data.findOne({ shortId: req.params.shortId })
     .then(doc => {
       console.log(doc);
-      res.status(200).redirect(doc.url);
+      doc
+        ? res.status(200).redirect(doc.url)
+        : res.status(404).send('Sorry, URL not found.');
     })
     .catch(err => {
       console.log(err);

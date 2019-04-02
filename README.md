@@ -1,7 +1,6 @@
 # URL Shortener
 A URL Shortener app created with React, MongoDB, Node and Express.
 
-
 ## How to run the app
 1. Make sure you have Docker installed (https://www.docker.com).
 2. In your terminal, navigate to the `root` directory of the application.
